@@ -69,7 +69,8 @@ with gr.Blocks(title="VI-Translate Web") as demo:
     translate_btn.click(
         fn=translate_pdf_gradio,
         inputs=[pdf_file, lang_in, lang_out],
-        outputs=output_file
+        outputs=output_file,
+        api_name="translate"
     )
 
 if __name__ == "__main__":
