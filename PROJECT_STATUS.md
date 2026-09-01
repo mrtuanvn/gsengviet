@@ -8,8 +8,9 @@
 ## Tiến độ
 - [x] Chuyển đổi mã nguồn VI-Translate sang kiến trúc FastAPI + Gradio Blank Space (`app.py`, `packages.txt`).
 - [x] Đẩy toàn bộ dự án lên GitHub `mrtuanvn/gsengviet`.
-- [x] Đã cài đặt `git-lfs` và cấu hình `.gitattributes` xử lý file nhị phân (`*.png`, `*.ttf`, `*.onnx`) cho Hugging Face.
-- [x] Cập nhật script tự động đồng bộ deploy: `deploy_hf.sh`.
+- [x] Cấu hình `.gitattributes` và loại bỏ thư mục không cần thiết (`.github`) để đáp ứng quy định Git LFS / file nhị phân của Hugging Face.
+- [x] Đẩy thành công mã nguồn lên Hugging Face Space `tuanipad/GSEngViet` (Push accepted).
+- [x] Thêm YAML frontmatter vào [VI-Translate/README.md](file:///home/botuser/ai_projects/gsEngViet/VI-Translate/README.md) để loại bỏ cảnh báo repo card của Hugging Face.
 
-## Bước tiếp theo (Dành cho User)
-Chạy lại script `bash deploy_hf.sh` để đẩy code sang Hugging Face Space.
+## Trạng thái hiện tại
+Mã nguồn đã được tải lên Hugging Face Space thành công. Hugging Face đang tự động build và khởi chạy ứng dụng.

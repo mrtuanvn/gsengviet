@@ -1,3 +1,13 @@
+---
+title: GSEngViet
+emoji: 📄
+colorFrom: blue
+colorTo: indigo
+sdk: gradio
+app_file: app.py
+pinned: false
+---
+
 <p align="center">
   <img src=".github/assets/logo.png" alt="PDF Translate logo" width="160">
 </p>
