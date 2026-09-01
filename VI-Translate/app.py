@@ -73,4 +73,4 @@ with gr.Blocks(title="VI-Translate Web") as demo:
     )
 
 if __name__ == "__main__":
-    demo.launch()
+    demo.launch(ssr_mode=False)
