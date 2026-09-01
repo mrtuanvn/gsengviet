@@ -20,9 +20,19 @@ onnx==1.17.0
 onnxruntime==1.20.1
 opencv-python==5.0.0.93
 peewee==3.17.9
-fastapi==0.104.1
-uvicorn==0.24.0
 python-multipart>=0.0.9
 
-# gradio==5.0.0 (pinned via README sdk_version) is compatible with the latest huggingface_hub,
-# so we no longer need to pin huggingface_hub<0.26, which resolves the babeldoc conflict.
+# app.py is a plain Gradio app (no direct FastAPI/uvicorn usage); gradio pulls
+# in the versions it needs. Do not pin fastapi/uvicorn here — gradio>=5.10.0
+# (see README sdk_version) requires fastapi>=0.115.2, which conflicts with
+# the old fastapi==0.104.1 pin previously left over from a FastAPI-based
+# architecture.
+#
+# babeldoc==0.2.33 requires huggingface-hub>=0.27.0. gradio<5.10.0 imports
+# the removed HfFolder symbol from huggingface_hub in gradio/oauth.py, which
+# breaks with huggingface-hub>=0.26. gradio==5.10.0 replaced that with
+# get_token() and only requires huggingface-hub>=0.25.1, so it satisfies both
+# constraints without needing to pin huggingface_hub at all.
+
+# Fix Gradio 5 "No API found" error by pinning pydantic
+pydantic==2.10.6

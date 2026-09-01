@@ -16,6 +16,8 @@ def translate_pdf_gradio(file_path, lang_in, lang_out):
     
     try:
         from pdf2zh import translate
+        from pdf2zh.doclayout import OnnxModel
+        model = OnnxModel.load_available()
     except ImportError:
         raise gr.Error("Không tìm thấy thư viện pdf2zh. Hãy chắc chắn đã cài đặt core app.")
 
@@ -29,7 +31,9 @@ def translate_pdf_gradio(file_path, lang_in, lang_out):
             files=[file_path],
             lang_in=lang_in if lang_in else "en",
             lang_out=lang_out if lang_out else "vi",
-            output=temp_dir
+            output=temp_dir,
+            service="google",
+            model=model
         )
         
         if not translated_files:
