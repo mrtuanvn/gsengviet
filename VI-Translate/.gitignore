@@ -32,3 +32,4 @@ desktop.ini
 # tracked in AGENTS.md, CLAUDE.md, .claude/skills/, and agent-knowledge/.
 /CLAUDE.local.md
 /.claude/settings.local.json
+venv/
