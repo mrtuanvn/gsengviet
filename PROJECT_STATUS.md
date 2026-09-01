@@ -16,4 +16,5 @@
 Mã nguồn đã được tải lên Hugging Face Space thành công. Hugging Face đang tự động build và khởi chạy ứng dụng.
 - [x] Sửa lỗi Build Error trên Hugging Face (cache miss) bằng cách làm sạch file `packages.txt`, do image cơ sở đã có sẵn các thư viện hệ thống cần thiết.
 - [x] Sửa lỗi Dependency Conflict giữa `python-multipart` và `gradio` bằng cách cập nhật `python-multipart>=0.0.9` trong file `requirements.txt`.
-- [x] Sửa lỗi khởi động Hugging Face ZeroGPU (`No @spaces.GPU function detected`) bằng cách viết lại hoàn toàn `app.py` thành một ứng dụng Gradio thuần. ZeroGPU yêu cầu `@spaces.GPU` phải được gọi thông qua hàm xử lý của Gradio thay vì FastAPI endpoint tĩnh, vì thế việc chuyển giao diện sang Gradio Blocks là giải pháp bắt buộc để Hugging Face có thể cấp phát GPU thành công.
+- [x] Sửa lỗi xung đột `huggingface_hub` với `gradio==4.44.1` và `babeldoc==0.2.33` bằng cách nâng cấp `sdk_version` trong `README.md` lên `5.0.0` để dùng Gradio bản mới nhất và gỡ bỏ `huggingface_hub<0.26` trong `requirements.txt`.
+

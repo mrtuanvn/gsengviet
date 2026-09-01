@@ -23,3 +23,6 @@ peewee==3.17.9
 fastapi==0.104.1
 uvicorn==0.24.0
 python-multipart>=0.0.9
+
+# gradio==5.0.0 (pinned via README sdk_version) is compatible with the latest huggingface_hub,
+# so we no longer need to pin huggingface_hub<0.26, which resolves the babeldoc conflict.
