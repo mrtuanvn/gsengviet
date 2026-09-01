@@ -28,13 +28,16 @@ def cleanup_temp_dir(dir_path: str):
 
 try:
     import spaces
-    gpu_decorator = spaces.GPU
 except ImportError:
-    def gpu_decorator(func):
-        return func
+    class MockSpaces:
+        def GPU(self, func=None, *args, **kwargs):
+            if func:
+                return func
+            return lambda f: f
+    spaces = MockSpaces()
 
 @app.post("/api/translate")
-@gpu_decorator
+@spaces.GPU
 async def translate_pdf(
     background_tasks: BackgroundTasks,
     file: UploadFile = File(...),
