@@ -26,7 +26,15 @@ def cleanup_temp_dir(dir_path: str):
     except Exception as e:
         logger.error(f"Error cleaning up {dir_path}: {e}")
 
+try:
+    import spaces
+    gpu_decorator = spaces.GPU
+except ImportError:
+    def gpu_decorator(func):
+        return func
+
 @app.post("/api/translate")
+@gpu_decorator
 async def translate_pdf(
     background_tasks: BackgroundTasks,
     file: UploadFile = File(...),

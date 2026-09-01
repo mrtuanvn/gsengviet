@@ -16,3 +16,4 @@
 Mã nguồn đã được tải lên Hugging Face Space thành công. Hugging Face đang tự động build và khởi chạy ứng dụng.
 - [x] Sửa lỗi Build Error trên Hugging Face (cache miss) bằng cách làm sạch file `packages.txt`, do image cơ sở đã có sẵn các thư viện hệ thống cần thiết.
 - [x] Sửa lỗi Dependency Conflict giữa `python-multipart` và `gradio` bằng cách cập nhật `python-multipart>=0.0.9` trong file `requirements.txt`.
+- [x] Sửa lỗi khởi động Hugging Face ZeroGPU (`No @spaces.GPU function detected`) bằng cách bọc hàm `translate_pdf` trong `web/main.py` bằng `@spaces.GPU`.
